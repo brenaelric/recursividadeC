@@ -47,13 +47,15 @@ int rec5 (int n)
 }
 
 //enesimo numero da sequencia (1,3,5,11,21,43...)
-//int rec6 (int n)
-//{
-//  if (n==1)
-//  return 1;
-//  else
-//  return ((rec5(n1) * 2)-1);
-//}
+int rec6 (int n)
+{
+  if (n == 1)
+  return 1;
+  else if (n % 2 == 0)
+  return ((rec6(n-1) * 2) + 1);
+  else
+  return ((rec6 (n-1) * 2) - 1);
+}
 
 
 main()
@@ -68,7 +70,7 @@ main()
       printf("*** 3 - enésimo número da sequencia (2,4,8,16,32...) ***\n");
       printf("*** 4 - enésimo número da sequencia (0,1,3,6,10...) ***\n");
       printf("*** 5 - enésimo número da sequencia (1,2,5,14,41...) ***\n");
-      //printf("*** 6 - enésimo número da sequencia (1,3,5,11,21,43...) ***\n");
+      printf("*** 6 - enésimo número da sequencia (1,3,5,11,21,43...) ***\n");
       scanf("%d",&op);
       switch (op)
       {
@@ -97,11 +99,11 @@ main()
           scanf("%d",&n);
           printf("O %dº da sequencia é %d\n",n,rec5(n));
           break;
-        //case 6:
-        //  printf("Digite um número natural:\n");
-        //  scanf("%d",&n);
-        //  printf("O %dº da sequencia é %d\n",n,rec6(n));
-        //  break;
+        case 6:
+          printf("Digite um número natural:\n");
+          scanf("%d",&n);
+          printf("O %dº da sequencia é %d\n",n,rec6(n));
+          break;
       }
       getch();
    } while (op < 7);
